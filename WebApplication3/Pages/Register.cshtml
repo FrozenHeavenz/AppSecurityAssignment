@@ -1,0 +1,94 @@
+﻿@page
+@model WebApplication3.Pages.RegisterModel
+@{
+}
+
+<div class="container mt-5">
+
+	<div class="row justify-content-center align-items-center">
+
+		<div class="col-sm-12 col-md-12 col-lg-4">
+			<h1 class="mb-3">Register </h1>
+
+			<form method="post" enctype="multipart/form-data">
+				<div asp-validation-summary="All" class="text-danger"></div>
+				@*First Name*@
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.FirstName">First Name</label>
+					<input type="Text" asp-for="RModel.FirstName" class="form-control" />
+					<span asp-validaton-for="RModel.FirstName" class="text-danger"></span>
+				</div>
+
+				@*Last Name*@
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.LastName">Last Name</label>
+					<input type="Text" asp-for="RModel.LastName" class="form-control" />
+					<span asp-validaton-for="RModel.LastName" class="text-danger"></span>
+				</div>
+
+				@*Gender*@
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Gender">Gender</label><br/>
+					@foreach (var gender in Model.Genders)
+					{
+						@Html.RadioButtonFor(model => model.RModel.Gender, gender) @gender <br/>
+					}
+				</div>
+
+				@*NRIC*@
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.NRIC">NRIC</label>
+					<input type="Text" asp-for="RModel.NRIC" class="form-control" />
+					<span asp-validaton-for="RModel.NRIC" class="text-danger"></span>
+				</div>
+
+				@*Email*@
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Email">Email Address</label>
+					<input type="Text" asp-for="RModel.Email" class="form-control" />
+					<span asp-validaton-for="RModel.Email" class="text-danger"></span>
+				</div>
+
+				@*Password*@
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Password">Password</label>
+					<input type="Text" asp-for="RModel.Password" class="form-control" />
+					<span asp-validaton-for="RModel.Password" class="text-danger"></span>
+				</div>
+
+				@*Confirm Password*@
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.ConfirmPassword">Confirm Password</label>
+					<input type="Text" asp-for="RModel.ConfirmPassword" class="form-control" />
+					<span asp-validaton-for="RModel.ConfirmPassword" class="text-danger"></span>
+				</div>
+
+				@*Date Of Birth*@
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.DOB">Date of Birth</label>
+					<input type="date" asp-for="RModel.DOB" class="form-control" />
+					<span asp-validaton-for="RModel.DOB" class="text-danger"></span>
+				</div>
+
+				@*Resume*@
+				<div class="mb-3">
+					<label class="form-label" asp-for="Upload">Resume</label>
+					<input type="file" accept=".pdf,.docx" asp-for="Upload" class="form-control"/>
+					<span asp-validaton-for="Upload" class="text-danger"></span>
+				</div>
+
+				@*WhoamI*@
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.WhoamI">Who Am I</label>
+					<input type="Text" asp-for="RModel.WhoamI" class="form-control" />
+					<span asp-validaton-for="RModel.WhoamI" class="text-danger"></span>
+				</div>
+
+				@*Submit Button*@
+				<div class="mb-3">
+					<button type="submit" class="btn btn-primary">Register</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
